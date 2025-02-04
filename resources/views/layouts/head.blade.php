@@ -9,10 +9,7 @@
 <!--CDN de Jquery Version 3.7.1-->
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
     crossorigin="anonymous"></script>
+<!--CDN de SweetAlert2-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Sección opcional para incluir scripts adicionales -->
 @yield('head-scripts')
-
-
-
-
-

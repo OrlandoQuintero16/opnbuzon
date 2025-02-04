@@ -1,6 +1,6 @@
-<nav class="bg-verde-oscuro border-white rounded-lg m-2">
-    <div class="flex justify-center items-center p-4">
-        <img src="https://buzoninterno.satisfaccionaifa.com/assets/img/logo_largo_aifa.png" alt="Logo AIFA"
-            class="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto object-contain">
+<nav class="bg-verde-oscuro dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700 shadow-xl p-5">
+    <div class="flex justify-center items-center min-w-sm">
+        <img src="{{ asset('images/logo_largo_aifa.png') }}" alt="Logo AIFA"
+            class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 2xl:w-1/7 max-w-full">
     </div>
 </nav>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.plantilla')
 
 @section('title', 'Bienvenido') {{-- Título dinámico para esta página específica --}}
 @section('head-scripts')
@@ -7,14 +7,21 @@
 
 @section('content')
 
-    <div class="flex items-center justify-center min-h-screen shadow-sm ">
-        <div class="flex items-center justify-between border border-gray-200 rounded-lg mb-3">
-            <div class="bg-blue-500 py-4">
+    <div class="flex items-center justify-center min-h-screen ">
+        <div class="flex items-center justify-between border border-gray-200  bg-white shadow-md rounded-lg mb-3">
+            <div class="bg-white py-4">
                 <h2 class="text-white text-center text-2xl font-bold"></h2>
             </div>
 
             <div class="container mx-auto my-5 px-4 md:px-6 lg:px-8">
-                <form onsubmit="validarDatos(event)" method="post">
+                <form onsubmit="validarDatos(event)" method="post" action="/reporte" enctype="multipart/form-data">
+                    @csrf
+
+                    <!--Entidad seleccionada-->
+                    <div class="flex justify-center items-center">
+                        <input type="hidden" name="entidad" value="{{ $entidad }}"
+                            class="block text-gray-700 font-bold w-full m-2 text-base text-center bg-white" name="entidad">
+                    </div>
 
                     <!--Campo Nombre-->
                     <div class="mb-4">
@@ -23,14 +30,14 @@
                         </label>
                         <input type="text"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="nombre" name="nombre" minlength="3" maxlength="100">
+                            id="NombreUsuarios" name="NombreUsuarios" minlength="3" maxlength="100">
                     </div>
                     <!--Campo telefono-->
                     <div class="mb-4">
-                        <label for="telefono" class="block text-gray-700 font-bold mb-2">Teléfono (Opcional)</label>
+                        <label for="TelefonoUsuario" class="block text-gray-700 font-bold mb-2">Teléfono (Opcional)</label>
                         <input type="tel"
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            id="telefono" name="telefono" minlength="10" maxlength="10">
+                            id="TelefonoUsuario" name="TelefonoUsuario" minlength="10" maxlength="10">
                     </div>
                     <!--Opciones de reporte-->
                     <fieldset class="mb-4">
@@ -41,35 +48,36 @@
                                 <!--Radio Comentario-->
                                 <input
                                     class="form-check-input h-4 w-4 border border-gray-300 rounded-full bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                    type="radio" id="tipocom" name="tipo_reporte" value="COMENTARIO" required>
-                                <label class="form-check-label inline-block text-gray-800" for="tipocom">Comentario</label>
+                                    type="radio" id="TipoReporte" name="TipoReporte" value="Comentario" required>
+                                <label class="form-check-label inline-block text-gray-800"
+                                    for="TipoReporte">Comentario</label>
                             </div>
-                            <!--Radio Sugerencia-->
+                            <!--Radio Necesidad-->
                             <div class="flex items-center">
                                 <input
                                     class="form-check-input h-4 w-4 border border-gray-300 rounded-full bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                    type="radio" id="tiposug" name="tipo_reporte" value="SUGERENCIA">
-                                <label class="form-check-label inline-block text-gray-800" for="tiposug">Sugerencia</label>
+                                    type="radio" id="tiponecesidad" name="TipoReporte" value="Necesidad">
+                                <label class="form-check-label inline-block text-gray-800" for="tiposug">Necesidad</label>
                             </div>
                             <!--Radio Ecodeli-->
                             <div class="flex items-center">
                                 <input
                                     class="form-check-input h-4 w-4 border border-gray-300 rounded-full bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                    type="radio" id="tipofel" name="tipo_reporte" value="Ecodeli">
+                                    type="radio" id="tipofel" name="TipoReporte" value="Ecodeli">
                                 <label class="form-check-label inline-block text-gray-800" for="tipofel">Ecodeli</label>
                             </div>
                         </div>
                     </fieldset>
 
                     <div class="mb-3">
-                        <label for="comentarios" class="block text-gray-700 font-bold mb-2">
+                        <label for="DescripcionReporte" class="block text-gray-700 font-bold mb-2">
                             Descripción del reporte: <span class="text-red-500">*</span>
                         </label>
                         <textarea
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-24"
                             placeholder="Favor de redactar considerando la información necesaria que permita atender o dar seguimiento a su participación (Lugar, fecha, hora, etc.)"
-                            id="comentarios" name="comentarios" rows="4" maxlength="500" minlength="1" required>
-                        </textarea>
+                            id="DescripcionReporte" name="DescripcionReporte" rows="1" maxlength="500" minlength="1" required></textarea>
+
                         <div id="contador" class="text-right text-gray-500 text-sm">0/500</div>
                     </div>
 
@@ -94,7 +102,8 @@
                                     imagen o presione el botón subir imagen </h4>
                                 <div class="flex items-center justify-center">
                                     <label>
-                                        <input type="file" accept="image/png, image/jpg, image/jpeg" hidden />
+                                        <input type="file" accept="image/png, image/jpg, image/jpeg" name="imagen"
+                                            hidden />
                                         <div
                                             class="flex w-28 h-9 px-2 flex-col bg-verde-oscuro rounded-full shadow text-white text-xs font-semibold leading-4 items-center justify-center cursor-pointer focus:outline-none">
                                             Subir imagen</div>

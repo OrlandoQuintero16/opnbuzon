@@ -2,7 +2,7 @@
 
 //Limitar Campo Nombre a 100 caracteres
 $(document).ready(function () {
-  $('#nombre').on('input', function () {
+  $('#NombreUsuarios').on('input', function () {
     let maxLength = 100;
     let currentValue = $(this).val();
     if (currentValue.length > maxLength) {
@@ -11,23 +11,31 @@ $(document).ready(function () {
   });
 });
 
-//Limitar Campoo Telefono a 10 caracteres
 $(document).ready(function () {
-  $('#telefono').on('input', function () {
+  $('#TelefonoUsuario').on('input', function () {
     let maxLength = 10;
     let currentValue = $(this).val();
 
-    // Limita la longitud del texto a 2 caracteres
-    if (currentValue.length > maxLength) {
-      $(this).val(currentValue.slice(0, maxLength));
+    // Eliminar caracteres no numéricos
+    let numericValue = currentValue.replace(/\D/g, '');
+
+    // Limita la longitud a 10 caracteres
+    if (numericValue.length > maxLength) {
+      numericValue = numericValue.slice(0, maxLength);
     }
+
+    // Establecer el valor limpio en el campo
+    $(this).val(numericValue);
   });
 });
 
-//Limitar Textarea a 500 caracteres
+
 $(document).ready(function () {
   const maxLength = 500; // Máximo número de caracteres permitidos
-  $('#comentarios').on('input', function () {
+  const minLength = 1; // Mínimo número de caracteres requeridos
+
+  // Función que actualiza el contador y recorta el texto si es necesario
+  $('#DescripcionReporte').on('input', function () {
     let currentLength = $(this).val().length; // Longitud del texto actual
     $('#contador').text(`${currentLength}/${maxLength}`); // Actualiza el contador
 
@@ -37,7 +45,19 @@ $(document).ready(function () {
       $('#contador').text(`${maxLength}/${maxLength}`);
     }
   });
+
+  // Validación para asegurarse de que el campo no esté vacío
+  $('#formulario').submit(function (event) {
+    let descripcion = $('#DescripcionReporte').val().trim();
+
+    // Si el campo está vacío o tiene menos de 1 carácter, mostrar un mensaje de error
+    if (descripcion.length < minLength) {
+      event.preventDefault(); // Evita el envío del formulario
+      alert('El campo Descripción no puede estar vacío y debe tener al menos 1 carácter.');
+    }
+  });
 });
+
 
 //Habilitar visualizar imagen seleccionada busca en el HTML Previsualización de imagen
 $(document).ready(function () {
