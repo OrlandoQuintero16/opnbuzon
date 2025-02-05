@@ -33,7 +33,7 @@
                     Guardia Nacional
                 </a>
 
-                <a href="{{ route('buzon', ['entidad' => 'Modulos de Informacion AIFA']) }}"
+                <a href="{{ route('buzon', ['entidad' => 'Módulos de información AIFA']) }}"
                     class="text-center text-white bg-verde-oscuro hover:bg-[#041e27] focus:ring-4 focus:ring-[#041e27] font-medium rounded-lg text-lg px-6 py-3 mb-4 focus:outline-none w-full transition duration-300 ease-in-out transform hover:scale-105">
                     Modulos de información AIFA
                 </a>

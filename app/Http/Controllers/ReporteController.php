@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Reporte;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ReportesExport;
+
 
 
 class ReporteController extends Controller
@@ -45,5 +48,10 @@ class ReporteController extends Controller
         $reportes = Reporte::paginate(10); // 10 resultados por página
         $reportes = Reporte::all(); // Obtener todos los reportes desde la base de datos
         return view('dashboard', compact('reportes')); // Pasar los reportes a la vista
+    }
+    public function exportarExcel()
+    {
+        // Genera el archivo Excel con los datos exportados.
+        return Excel::download(new ReportesExport, 'Reportes.xlsx');
     }
 }

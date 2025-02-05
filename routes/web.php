@@ -32,5 +32,7 @@ Route::middleware('auth')->group(function () {
 
 // Ruta para procesar el formulario del formulario buzón
 Route::post('/reporte', [ReporteController::class, 'store'])->name('reporte.store');
+// Ruta para exportar los reportes a Excel
+Route::get('/exportar-reportes', [ReporteController::class, 'exportarExcel'])->name('exportar.reportes');
 
 require __DIR__.'/auth.php';

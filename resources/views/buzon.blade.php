@@ -63,8 +63,8 @@
                             <div class="flex items-center">
                                 <input
                                     class="form-check-input h-4 w-4 border border-gray-300 rounded-full bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                    type="radio" id="tipofel" name="TipoReporte" value="Ecodeli">
-                                <label class="form-check-label inline-block text-gray-800" for="tipofel">Ecodeli</label>
+                                    type="radio" id="tipofel" name="TipoReporte" value="Ecodelli">
+                                <label class="form-check-label inline-block text-gray-800" for="tipofel">Ecodelli</label>
                             </div>
                         </div>
                     </fieldset>
@@ -114,11 +114,13 @@
 
                     </div>
 
-                    <!--Previsualización de imagen-->
-                    <div class="mb-4">
-                        <img id="imagePreview" src="" alt="Previsualización de imagen" class="max-w-xl h-auto"
+                    <!-- Previsualización de imagen -->
+                    <div class="mb-4 flex justify-center">
+                        <img id="imagePreview" src="" alt="Previsualización de imagen"
+                            class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto rounded-lg shadow-md"
                             style="display: none;">
                     </div>
+
 
                     <p class="text-center mt-4 text-gray-600">Agradecemos tú valioso tiempo para compartir tú opinión con
                         nosotros</p>
