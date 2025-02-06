@@ -11,22 +11,25 @@
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-6">
             <div class="p-6">
-                <!-- Contenido de la tarjeta -->
-                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                    <!-- Título con soporte para tema nocturno -->
-                    <h2 class="text-gray-900 dark:text-white text-xl font-bold">Opciones: </h2>
+                <!-- Título con soporte para tema nocturno -->
+                <h2 class="text-gray-900 dark:text-white text-xl font-bold mb-4">Opciones:</h2>
 
-                    <!-- Botón de descarga -->
+                <!-- Contenedor para los botones -->
+                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
                     <a href="{{ route('exportar.reportes') }}"
                         class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
-                        <i class="fa-solid fa-file-excel" style="color: #ffffff;"></i>Descargar en Excel
+                        <i class="fa-solid fa-file-excel" style="color: #ffffff;"></i> Descargar en Excel
                     </a>
 
-                    
+                    <button id="clearFilters"
+                        class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg">
+                        <i class="fa-regular fa-trash-can"></i> Borrar filtros
+                    </button>
                 </div>
-
             </div>
         </div>
+
+
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6">
@@ -37,7 +40,7 @@
                         <tr>
                             <th class="px-6 py-3 text-center">
                                 <span class="block text-center font-medium text-gray-900 dark:text-white">Entidad</span>
-                                <select class="datatable-input mt-2 block w-full p-2 text-sm border rounded-lg"
+                                <select class="datatable-input mt-2 block w-full p-2 text-sm border rounded-lg text-center"
                                     data-column="0">
                                     <option value="">Seleccionar opción</option>
                                     <option value="Guardia Nacional">Guardia Nacional</option>
@@ -65,7 +68,7 @@
                                     <option value="">Seleccionar opción</option>
                                     <option value="Comentario">Comentario</option>
                                     <option value="Necesidad">Necesidad</option>
-                                    <option value="Ecodelli">Ecodelli</option>
+                                    <option value="Queja">Queja </option>
                                 </select>
                             </th>
                             <th class="px-6 py-3 text-center">
@@ -80,8 +83,7 @@
                             </th>
                             <th class="px-6 py-3 text-center">
                                 <span class="block text-center font-medium text-gray-900 dark:text-white">Fecha
-                                    y
-                                    Hora</span>
+                                </span>
                                 <input id="fechaFiltro" class="block w-full p-2 text-sm border rounded-lg"
                                     type="text" placeholder="Seleccionar rango de fechas...">
                             </th>
@@ -94,7 +96,7 @@
                                 <td class="px-4 py-2 text-center">{{ $reporte->NombreUsuarios }}</td>
                                 <td class="px-4 py-2 text-center">{{ $reporte->TelefonoUsuario }}</td>
                                 <td class="px-4 py-2 text-center">{{ $reporte->TipoReporte }}</td>
-                                <td class="px-4 py-2 text-center">{{ $reporte->DescripcionReporte }}</td>
+                                <td class="px-4 py-2 text-left">{{ $reporte->DescripcionReporte }}</td>
                                 <td class="px-4 py-2 text-center">
                                     @if ($reporte->imagen)
                                         <img src="{{ asset($reporte->imagen) }}" alt="Evidencia"
@@ -113,7 +115,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- Modal para la imagen -->
