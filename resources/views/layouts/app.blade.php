@@ -25,6 +25,9 @@
     <!-- Flatpickr JS -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d4a9d8ba7b.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body class="font-sans antialiased">

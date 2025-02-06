@@ -34,7 +34,7 @@ $(document).ready(function () {
     // Inicializar Flatpickr para el filtro de fechas
     flatpickr("#fechaFiltro", {
         mode: "range",
-        dateFormat: "Y-m-d",
+        dateFormat: "d-m-Y",
         locale: "es",
         onClose: function (selectedDates) {
             if (selectedDates.length === 2) {
@@ -49,7 +49,7 @@ $(document).ready(function () {
         const fin = fechaFin.toISOString().split('T')[0];
 
         $.fn.dataTable.ext.search.push(function (settings, data) {
-            const fechaCelda = data[5].split(' ')[0]; // Extrae solo la fecha (sin la hora)
+            const fechaCelda = data[6].split(' ')[0]; // Extrae solo la fecha (sin la hora)
             return fechaCelda >= inicio && fechaCelda <= fin;
         });
 

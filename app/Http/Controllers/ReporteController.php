@@ -54,4 +54,5 @@ class ReporteController extends Controller
         // Genera el archivo Excel con los datos exportados.
         return Excel::download(new ReportesExport, 'Reportes.xlsx');
     }
+    
 }

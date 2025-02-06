@@ -19,8 +19,10 @@
                     <!-- Botón de descarga -->
                     <a href="{{ route('exportar.reportes') }}"
                         class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
-                        Descargar Reportes en Excel
+                        <i class="fa-solid fa-file-excel" style="color: #ffffff;"></i>Descargar en Excel
                     </a>
+
+                    
                 </div>
 
             </div>
@@ -37,10 +39,10 @@
                                 <span class="block text-center font-medium text-gray-900 dark:text-white">Entidad</span>
                                 <select class="datatable-input mt-2 block w-full p-2 text-sm border rounded-lg"
                                     data-column="0">
-                                    <option value="">-- Seleccionar opción --</option>
-                                    <option value="opcion1">Guardia Nacional</option>
-                                    <option value="opcion2">Módulos de información AIFA</option>
-                                    <option value="opcion3">Ecodelli</option>
+                                    <option value="">Seleccionar opción</option>
+                                    <option value="Guardia Nacional">Guardia Nacional</option>
+                                    <option value="Módulos de información AIFA">Módulos de información AIFA</option>
+                                    <option value="Ecodelli">Ecodelli</option>
                                 </select>
                             </th>
                             <th class="px-6 py-3 text-center">
@@ -58,8 +60,13 @@
                             <th class="px-6 py-3 text-center">
                                 <span class="block text-center font-medium text-gray-900 dark:text-white">Tipo
                                     de Reporte</span>
-                                <input class="datatable-input mt-2 block w-full p-2 text-sm border rounded-lg"
-                                    type="search" data-column="3" placeholder="Buscar...">
+                                <select class="datatable-input mt-2 block w-full p-2 text-sm border rounded-lg"
+                                    data-column="3">
+                                    <option value="">Seleccionar opción</option>
+                                    <option value="Comentario">Comentario</option>
+                                    <option value="Necesidad">Necesidad</option>
+                                    <option value="Ecodelli">Ecodelli</option>
+                                </select>
                             </th>
                             <th class="px-6 py-3 text-center">
                                 <span
