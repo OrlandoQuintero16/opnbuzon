@@ -12,13 +12,13 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-6">
             <div class="p-6">
                 <!-- Título con soporte para tema nocturno -->
-                <h2 class="text-gray-900 dark:text-white text-xl font-bold mb-4">Opciones:</h2>
+                <h2 class="text-gray-900 dark:text-white text-xl font-bold mb-4">Opciones</h2>
 
                 <!-- Contenedor para los botones -->
                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4">
                     <a href="{{ route('exportar.reportes') }}"
                         class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all duration-200">
-                        <i class="fa-solid fa-file-excel" style="color: #ffffff;"></i> Descargar en Excel
+                        <i class="fa-solid fa-file-excel" style="color: #ffffff;"></i> Descargar reportes en Excel
                     </a>
 
                     <button id="clearFilters"
@@ -127,4 +127,5 @@
             </div>
         </div>
     </div>
+
 </x-app-layout>

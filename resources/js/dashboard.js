@@ -6,12 +6,17 @@ $(document).ready(function () {
         lengthMenu: [10, 25, 50, 100],
         pageLength: 10,
         columnDefs: [
+          
             {
-                targets: "_all",  // Desactiva el reordenamiento para las columnas 0 y 3
-                orderable: false,  // Desactiva el ordenamiento (mover) de estas columnas
-                targets: [0, 6], type: 'string'
+                targets: "_all", // Aplica a todas las columnas
+                type: 'string',
+                orderable: false, // No permite ordenar la columna
+                className: '' // Evita que agregue clases automáticas
             }
         ],
+        createdRow: function (row, data, dataIndex) {
+            $(row).find("td").removeClass("sorting_1 dt-type-numeric"); // Remueve las clases innecesarias
+        },
         language: {
             search: "Buscar:",
             lengthMenu: "Mostrar _MENU_ registros",
@@ -30,6 +35,19 @@ $(document).ready(function () {
     // Limpiar filtros al cargar la página
     $(".datatable-input").val("");
     table.search("").draw();
+
+    $("#clearFilters").click(function () {
+        // Limpiar inputs de búsqueda
+        $("input[type='search']").val("");
+    
+        // Restablecer select a su primera opción
+        $("select").prop("selectedIndex", 0);
+    
+        // Limpiar el filtro global de DataTables
+        let tabla = $("#tablareportes").DataTable();
+        tabla.search('').columns().search('').draw(); // Restablece filtros y redibuja
+    });
+    
 
     // Filtrar por columnas específicas al cambiar el select
     $(".datatable-input").on("keyup change", function () {

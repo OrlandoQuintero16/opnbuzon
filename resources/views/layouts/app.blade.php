@@ -28,10 +28,12 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/d4a9d8ba7b.js" crossorigin="anonymous"></script>
 
+    <link rel="icon" href="{{ asset('images/AIFA_icono.png') }}" type="image/png">
 </head>
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
+
         @include('layouts.navigation') <!-- Barra de navegación -->
 
         <!-- Contenido de la página -->
@@ -39,6 +41,9 @@
             {{ $slot }}
         </main>
     </div>
+
+    @include('layouts.footer') <!-- Pie de página -->
+
 </body>
 
 </html>

@@ -12,4 +12,6 @@
 <!--CDN de SweetAlert2-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Sección opcional para incluir scripts adicionales -->
+<!-- Icono de la pestaña -->
+<link rel="icon" href="{{ asset('images/AIFA_icono.png') }}" type="image/png">
 @yield('head-scripts')

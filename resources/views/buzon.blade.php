@@ -59,12 +59,12 @@
                                     type="radio" id="tiponecesidad" name="TipoReporte" value="Necesidad">
                                 <label class="form-check-label inline-block text-gray-800" for="tiposug">Necesidad</label>
                             </div>
-                            <!--Radio Ecodeli-->
+                            <!--Radio Queja-->
                             <div class="flex items-center">
                                 <input
                                     class="form-check-input h-4 w-4 border border-gray-300 rounded-full bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                                    type="radio" id="tipofel" name="TipoReporte" value="Ecodelli">
-                                <label class="form-check-label inline-block text-gray-800" for="tipofel">Ecodelli</label>
+                                    type="radio" id="tipofel" name="TipoReporte" value="Queja">
+                                <label class="form-check-label inline-block text-gray-800" for="tipofel">Queja</label>
                             </div>
                         </div>
                     </fieldset>
